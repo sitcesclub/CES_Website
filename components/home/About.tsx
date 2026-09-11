@@ -1,43 +1,25 @@
-import Link from "next/link";
-
 export default function About() {
   return (
-    <section id="about" className="min-h-screen flex items-center bg-slate-900 border-y border-slate-800 py-16 md:py-0">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="space-y-6">
-          <p className="text-xs font-bold tracking-widest text-slate-400 uppercase">
-            About CES
-          </p>
-          
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-            Shaping the tech landscape for engineering students.
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 text-sm leading-relaxed text-slate-400">
-            <div>
-              <h3 className="font-semibold text-slate-200 mb-2">Who we are</h3>
-              <p>A dynamic collective of passionate programmers, thinkers, and engineering students working outside the curriculum boundaries.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-200 mb-2">Why we exist</h3>
-              <p>To bridge the gap between academic textbooks and rapid structural shifts in technology, software engineering, and core infrastructure.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-200 mb-2">What we provide</h3>
-              <p>Hands-on development labs, peer hackathons, real project collaborations, and an expansive developer network framework.</p>
-            </div>
-          </div>
+    <section
+      id="about"
+      className="relative z-10 min-h-screen flex flex-col justify-center items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent py-16 text-center"
+    >
+      <div className="mx-auto max-w-xl">
+        {/* Section Label */}
+        <p className="mb-2.5 text-[11px] font-medium uppercase tracking-[2px] text-[#7d84c9]">
+          WHO WE ARE
+        </p>
 
-          <div className="pt-6">
-            <Link
-              href="/about"
-              className="inline-flex items-center text-sm font-semibold text-white hover:text-slate-300 transition-colors group"
-            >
-              Learn more about our mission
-              <span className="ml-1 transform transition-transform group-hover:translate-x-1">→</span>
-            </Link>
-          </div>
-        </div>
+        {/* Heading */}
+        <h2 className="m-0 text-[44px] font-medium uppercase tracking-[2px]">
+          <span className="text-[#4a7fd4]">A B O U T</span>
+        </h2>
+
+        {/* Description */}
+        <p className="mx-auto mt-[18px] max-w-[380px] text-[13px] leading-[1.6] text-[#8b85b3]">
+          Same sky, further out — the hero&apos;s void keeps drifting into
+          indigo as you scroll, no hard cut between sections.
+        </p>
       </div>
     </section>
   );

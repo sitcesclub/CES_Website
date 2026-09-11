@@ -19,38 +19,38 @@ const highlights = [
 
 export default function Highlights() {
   return (
-    <section className="min-h-screen flex items-center bg-slate-900 border-t border-slate-800 py-16 md:py-0">
+    <section className="min-h-screen flex flex-col justify-center border-t border-white/[0.03] py-16 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <div>
-            <p className="text-xs font-bold tracking-widest text-slate-400 uppercase mb-2">Spotlight</p>
-            <h2 className="text-3xl font-bold tracking-tight text-white">Featured Architecture & Events</h2>
+            <p className="text-[11px] font-medium tracking-[2px] text-[var(--ces-text-secondary)] uppercase mb-2">Spotlight</p>
+            <h2 className="text-3xl font-medium text-[var(--ces-text-primary)] tracking-tight">Featured Events</h2>
           </div>
-          <Link href="/events" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+          <Link href="/events" className="text-sm font-medium text-[var(--ces-text-muted)] hover:text-[var(--ces-text-primary)] transition-colors">
             View all events →
           </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {highlights.map((item, idx) => (
-            <div key={idx} className="flex flex-col bg-slate-950 border border-slate-800 rounded-lg overflow-hidden group">
-              <div className="h-48 bg-slate-900 relative overflow-hidden border-b border-slate-800">
-                <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-30" />
+            <div key={idx} className="flex flex-col bg-white/[0.005] border border-white/[0.05] rounded-xl overflow-hidden group backdrop-blur-sm">
+              <div className="h-48 bg-white/[0.01] relative overflow-hidden border-b border-white/[0.03]">
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px]" />
               </div>
               
               <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs font-mono font-medium tracking-wider text-slate-300">
-                    <span>{item.tag}</span>
-                    <span className="text-slate-500">{item.date}</span>
+                  <div className="flex items-center justify-between text-xs font-mono tracking-wider">
+                    <span className="text-[var(--ces-gold)]">{item.tag}</span>
+                    <span className="text-[var(--ces-text-muted)]">{item.date}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-slate-300 transition-colors">
+                  <h3 className="text-xl font-medium text-[var(--ces-text-primary)]">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                  <p className="text-[13px] text-[var(--ces-text-muted)] leading-relaxed">{item.desc}</p>
                 </div>
                 
-                <Link href={item.href} className="inline-flex items-center text-xs font-semibold text-slate-300 hover:text-white pt-2">
+                <Link href={item.href} className="inline-flex items-center text-xs font-medium text-[var(--ces-text-secondary)] hover:text-[var(--ces-text-primary)] pt-2">
                   View event <span className="ml-1">→</span>
                 </Link>
               </div>

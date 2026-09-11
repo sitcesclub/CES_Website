@@ -9,27 +9,27 @@ const domains = [
 
 export default function Domains() {
   return (
-    <section className="min-h-screen flex items-center bg-slate-950 py-16 md:py-0">
+    <section className="min-h-screen flex flex-col justify-center py-16 bg-transparent border-t border-white/[0.03]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="mb-12">
-          <p className="text-xs font-bold tracking-widest text-slate-400 uppercase mb-2">What We Do</p>
-          <h2 className="text-3xl font-bold tracking-tight text-white">Technical Scope & Focus Tracks</h2>
+        <div className="mb-12 border-l border-white/[0.1] pl-4">
+          <p className="text-[11px] font-medium tracking-[2px] text-[var(--ces-text-secondary)] uppercase mb-2">What We Do</p>
+          <h2 className="text-3xl font-medium text-[var(--ces-text-primary)] tracking-tight">Technical Scope & Focus Tracks</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {domains.map((domain) => (
             <div 
               key={domain.id} 
-              className="p-6 bg-slate-900/50 border border-slate-800 rounded-lg hover:border-slate-700 transition-colors flex flex-col justify-between group h-48"
+              className="p-6 bg-white/[0.01] border border-white/[0.05] rounded-xl hover:border-white/[0.12] transition-colors flex flex-col justify-between group h-48 backdrop-blur-sm"
             >
               <div>
-                <span className="text-xs font-mono text-slate-600 block mb-2">{domain.id}</span>
-                <h3 className="text-lg font-semibold text-slate-200 group-hover:text-white transition-colors mb-2">
+                <span className="text-xs font-mono text-[var(--ces-text-muted)] block mb-2">{domain.id}</span>
+                <h3 className="text-lg font-medium text-[var(--ces-text-primary)] mb-2">
                   {domain.title}
                 </h3>
-                <p className="text-sm text-slate-400 line-clamp-2 leading-relaxed">{domain.desc}</p>
+                <p className="text-[13px] text-[var(--ces-text-muted)] line-clamp-2 leading-relaxed">{domain.desc}</p>
               </div>
-              <div className="text-slate-600 group-hover:text-white transition-colors text-right text-lg">
+              <div className="text-[var(--ces-text-muted)] group-hover:text-[var(--ces-text-primary)] transition-colors text-right text-lg">
                 →
               </div>
             </div>

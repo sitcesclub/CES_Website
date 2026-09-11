@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ============================================================
+   Tailwind v4 Theme Configuration Directives
+   ============================================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-ces-void: #050408;
+  --color-ces-indigo-deep: #0a0f2e;
+  --color-ces-indigo: #141b4a;
+  --color-ces-indigo-glow: #070a22;
+  --color-ces-text-primary: #f5f4fb;
+  --color-ces-text-secondary: #a49fc9;
+  --color-ces-text-muted: #8b85b3;
+  --color-ces-gold: #c9a24a;
+  --color-ces-glint-blue: #7a8cff;
+  --color-ces-garnet: #a50044;
+  --color-ces-blaugrana-blue: #004d98;
+}
+
+:root {
+  --font-sans: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* ============================================================
+   Reusable CES Effects
+   ============================================================ */
+
+.ces-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.ces-ambient-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at 80% 20%,
+      rgba(122, 140, 255, 0.06),
+      transparent 60%);
+  pointer-events: none;
+}
+
+.accent-stripe {
+  background: linear-gradient(90deg, #a50044, #004d98);
+  opacity: 0.55;
 }
