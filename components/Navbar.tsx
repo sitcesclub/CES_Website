@@ -1,141 +1,119 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-// Single data structure for navigation items
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Events", href: "/events" },
-  { label: "Achievements", href: "/achievements" },
-  { label: "Members", href: "/members" },
-  { label: "Alumni", href: "/alumni" },
-  { label: "Talks", href: "/talks" },
-];
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Navbar() {
-  const pathname = usePathname();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Handle transparent to solid background transition on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close mobile menu when shifting route
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
+  const links = [
+    "HOME",
+    "EVENTS",
+    "MEMBERS",
+    "ACHIEVEMENTS",
+    "VISION",
+    "TALKS",
+    "ALUMNI",
+  ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-        isScrolled || isMobileMenuOpen
-          ? "bg-white border-slate-200 shadow-sm text-slate-900"
-          : "bg-transparent border-transparent text-white"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          
-          {/* Logo - Anchored Left */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="font-bold text-xl tracking-wider focus:outline-none focus:ring-2 focus:ring-slate-400 rounded-md p-1">
-              CES
-            </Link>
-          </div>
+    <nav className="fixed left-1/2 top-3 z-50 w-[calc(100%-24px)] max-w-[1300px] -translate-x-1/2">
+      {/* Main Navbar */}
+      <div className="flex h-[52px] items-center gap-3 overflow-hidden rounded-full border border-[rgba(89,97,128,0.3)] bg-[rgba(27,32,49,0.85)] px-3 shadow-lg backdrop-blur-md sm:top-4 sm:px-4">
 
-          {/* Desktop Navigation Links - Shifted Far Right */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-4 ml-auto">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 ${
-                    isActive
-                      ? isScrolled
-                        ? "text-slate-900 bg-slate-100 font-semibold"
-                        : "text-white bg-white/10 font-semibold"
-                      : isScrolled 
-                        ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50" 
-                        : "text-slate-300 hover:text-white hover:bg-white/5"
-                  }`}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
+        {/* CES Logo */}
+        <div className="relative h-[38px] w-[38px] shrink-0 sm:h-[42px] sm:w-[42px]">
+          <Image
+            src="/ces-logo-main.png"
+            alt="CES"
+            fill
+            className="object-contain"
+            sizes="42px"
+          />
+        </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              type="button"
-              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400 ${
-                isScrolled || isMobileMenuOpen
-                  ? "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
-                  : "text-slate-300 hover:text-white hover:bg-white/10"
-              }`}
-              aria-controls="mobile-menu"
-              aria-expanded={isMobileMenuOpen}
+        {/* Society Name - Desktop */}
+        <div className="hidden shrink-0 whitespace-nowrap text-[15px] font-medium text-[#f5f7ff] md:block lg:text-[16px]">
+          Computer Engineers&apos; Society
+        </div>
+
+        {/* CES Name - Mobile */}
+        <div className="block shrink-0 text-[14px] font-medium tracking-wide text-[#f5f7ff] md:hidden">
+          CES
+        </div>
+
+        {/* Spacer */}
+        <div className="min-w-0 flex-1" />
+
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
+          {links.map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="whitespace-nowrap text-[11px] font-medium tracking-[0.5px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
             >
-              <span className="sr-only">Open main menu</span>
-              {isMobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
+              {link}
+            </a>
+          ))}
         </div>
+
+        {/* Tablet Navigation */}
+        <div className="hidden items-center gap-4 md:flex lg:hidden">
+          {links.slice(0, 4).map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="whitespace-nowrap text-[10px] font-medium tracking-[0.4px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
+            >
+              {link}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-[#d8dcef] transition-colors hover:bg-white/[0.1] md:hidden"
+        >
+          <span className="flex flex-col gap-[4px]">
+            <span
+              className={`block h-[1.5px] w-4 bg-current transition-transform duration-200 ${
+                menuOpen ? "translate-y-[5.5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-[1.5px] w-4 bg-current transition-opacity duration-200 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-[1.5px] w-4 bg-current transition-transform duration-200 ${
+                menuOpen ? "-translate-y-[5.5px] -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
       </div>
 
-      {/* Mobile Menu Panel */}
-      <div
-        className={`md:hidden bg-white border-b border-slate-200 transition-all duration-200 ${
-          isMobileMenuOpen ? "block opacity-100" : "hidden opacity-0"
-        }`}
-        id="mobile-menu"
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-slate-900">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block px-3 py-2 rounded-md text-base font-medium focus:outline-none focus:ring-2 focus:ring-slate-400 ${
-                  isActive
-                    ? "bg-slate-100 text-slate-900 font-semibold"
-                    : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                }`}
-                aria-current={isActive ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="mt-2 overflow-hidden rounded-2xl border border-[rgba(89,97,128,0.3)] bg-[rgba(20,27,74,0.96)] p-2 shadow-xl backdrop-blur-md md:hidden">
+          {links.map((link) => (
+            <a
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-4 py-3 text-[12px] font-medium tracking-[0.5px] text-[#b8bfd6] transition-colors hover:bg-white/[0.06] hover:text-[#f5f7ff]"
+            >
+              {link}
+            </a>
+          ))}
         </div>
-      </div>
+      )}
     </nav>
   );
 }

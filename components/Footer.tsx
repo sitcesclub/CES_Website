@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function Footer() {
-  // Single data structures for clean management of resources and links
   const navLinks = [
     { label: "Events", href: "/events" },
     { label: "Achievements", href: "/achievements" },
@@ -26,10 +25,10 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        
+
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 xl:gap-12">
-          
+
           {/* Brand Column */}
           <div className="space-y-4 md:col-span-1">
             <Link href="/" className="text-white font-bold text-xl tracking-wider focus:outline-none focus:ring-2 focus:ring-blue-500 rounded">
@@ -49,8 +48,8 @@ export default function Footer() {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.label}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-sm hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
                   >
                     {link.label}
