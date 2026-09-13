@@ -17,9 +17,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed left-1/2 top-3 z-50 w-[calc(100%-24px)] max-w-[1300px] -translate-x-1/2">
-      {/* Main Navbar */}
-      <div className="flex h-[52px] items-center gap-3 overflow-hidden rounded-full border border-[rgba(89,97,128,0.3)] bg-[rgba(27,32,49,0.85)] px-3 shadow-lg backdrop-blur-md sm:top-4 sm:px-4">
+    // Increased max-w from 1300px to 1440px to extend the navbar's maximum length
+    <nav className="fixed left-1/2 top-3 z-50 w-[calc(100%-24px)] max-w-[1440px] -translate-x-1/2">
+      {/* Main Navbar: Increased height slightly to h-[56px] and horizontal padding from px-3 to px-6 */}
+      <div className="flex h-[56px] items-center gap-3 overflow-hidden rounded-full border border-[rgba(89,97,128,0.3)] bg-[rgba(27,32,49,0.85)] px-6 shadow-lg backdrop-blur-md sm:top-4">
 
         {/* CES Logo */}
         <div className="relative h-[38px] w-[38px] shrink-0 sm:h-[42px] sm:w-[42px]">
@@ -45,8 +46,8 @@ export default function Navbar() {
         {/* Spacer */}
         <div className="min-w-0 flex-1" />
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
+        {/* Desktop Navigation: Increased gaps between items (gap-6 / xl:gap-9) and added right padding (pr-2) to pull buttons away from the extreme right edge */}
+        <div className="hidden items-center gap-6 pr-2 lg:flex xl:gap-9">
           {links.map((link) => (
             <a
               key={link}
@@ -59,8 +60,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Tablet Navigation */}
-        <div className="hidden items-center gap-4 md:flex lg:hidden">
+        {/* Tablet Navigation: Increased gaps and added right padding */}
+        <div className="hidden items-center gap-5 pr-1 md:flex lg:hidden">
           {links.slice(0, 4).map((link) => (
             <a
               key={link}
