@@ -33,12 +33,12 @@ export default function Navbar() {
         </div>
 
         {/* Society Name - Desktop */}
-        <div className="hidden shrink-0 whitespace-nowrap text-[15px] font-medium text-[#f5f7ff] md:block lg:text-[16px]">
+        <div className="hidden shrink-0 whitespace-nowrap text-[15px] font-semibold tracking-wide text-[#f5f7ff] md:block lg:text-[16px]">
           Computer Engineers&apos; Society
         </div>
 
         {/* CES Name - Mobile */}
-        <div className="block shrink-0 text-[14px] font-medium tracking-wide text-[#f5f7ff] md:hidden">
+        <div className="block shrink-0 text-[14px] font-semibold tracking-wider text-[#f5f7ff] md:hidden">
           CES
         </div>
 
@@ -51,7 +51,7 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="whitespace-nowrap text-[11px] font-medium tracking-[0.5px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
+              className="whitespace-nowrap text-[12px] font-semibold tracking-[0.8px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
             >
               {link}
             </a>
@@ -64,7 +64,7 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="whitespace-nowrap text-[10px] font-medium tracking-[0.4px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
+              className="whitespace-nowrap text-[11px] font-semibold tracking-[0.6px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
             >
               {link}
             </a>
@@ -107,7 +107,8 @@ export default function Navbar() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={() => setMenuOpen(false)}
-              className="block rounded-xl px-4 py-3 text-[12px] font-medium tracking-[0.5px] text-[#b8bfd6] transition-colors hover:bg-white/[0.06] hover:text-[#f5f7ff]"
+              
+              className="block rounded-xl px-4 py-3 text-[13px] font-semibold tracking-[0.8px] text-[#b8bfd6] transition-colors hover:bg-white/[0.06] hover:text-[#f5f7ff]"
             >
               {link}
             </a>

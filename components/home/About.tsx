@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 min-h-screen flex flex-col justify-center items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent py-16 text-center"
+      className="relative z-10 h-[600px] flex flex-col justify-center items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-transparent text-center"
     >
       <div className="mx-auto max-w-xl">
         {/* Section Label */}

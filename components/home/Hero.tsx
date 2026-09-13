@@ -1,35 +1,117 @@
 export default function Hero() {
   return (
-    <section className="relative z-10 flex min-h-[calc(100vh-5rem)] w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-col justify-between py-12 sm:py-16">
-      <div className="flex w-full flex-col items-center justify-between gap-6 my-auto md:flex-row">
-        {/* Hero Content */}
-        <div className="min-w-0 flex-1 text-left">
-          <p className="mb-1.5 text-[14px] font-medium text-[#c9a24a]">
+    <section
+      className="
+        relative z-10
+        flex min-h-[calc(100vh-5rem)]
+        w-full max-w-7xl mx-auto
+        px-4 sm:px-6 lg:px-8
+        flex-col justify-between
+        py-[clamp(2rem,6vh,4rem)]
+      "
+    >
+      <div
+        className="
+          flex w-full
+          flex-col items-center justify-between
+          gap-[clamp(2rem,5vw,5rem)]
+          my-auto
+          md:flex-row
+        "
+      >
+        {/* Hero Content - Centers text and layout on mobile, transitions smoothly to left-aligned on desktop */}
+        <div className="min-w-0 flex-1 text-center md:text-left flex flex-col items-center md:items-start w-full">
+
+          {/* Main Brand */}
+          <p
+            className="
+              mb-[clamp(0.75rem,1.5vh,1.25rem)]
+              max-w-[850px]
+              text-[clamp(1.5rem,3.2vw,3.5rem)]
+              font-medium
+              leading-[1.08]
+              tracking-[-0.025em]
+              text-[#e8c977]
+            "
+          >
             Computer Engineers&apos; Society
           </p>
 
-          <h1 className="mb-4 text-[38px] font-medium leading-[1.15] text-[#f5f4fb]">
+          {/* Welcome Heading */}
+          <h1
+            className="
+              mb-[clamp(1rem,2vh,1.5rem)]
+              text-[clamp(2.25rem,4.5vw,4rem)]
+              font-semibold
+              leading-[1.05]
+              tracking-[-0.025em]
+              text-[#f5f4fb]
+            "
+          >
             Welcomes you
           </h1>
 
-          <p className="mb-6 max-w-[360px] text-[13px] leading-[1.4] text-[#8b85b3]">
-            Official Computer Science &amp; Engineering Department Club of
+          {/* Description */}
+          <p
+            className="
+              mb-[clamp(1.25rem,2.5vh,1.75rem)]
+              max-w-[clamp(320px,38vw,500px)]
+              text-[clamp(0.85rem,1.05vw,1.1rem)]
+              leading-[1.5]
+              text-[#8b85b3]
+            "
+          >
+            Official Computer Science &amp; Engineering Department Club of<br />
             Siliguri Institute of Technology
           </p>
 
+          {/* CTA */}
           <button
             type="button"
-            className="cursor-pointer rounded-[24px] border-none bg-[#f2f0fb] px-6 py-2.5 text-[13px] font-medium text-[#0a0812] transition-colors hover:bg-[#e2e0eb] focus:outline-none"
+            className="
+              cursor-pointer
+              rounded-[24px]
+              border-none
+              bg-[#f2f0fb]
+              px-[clamp(1.25rem,2.2vw,2rem)]
+              py-[clamp(0.6rem,1vh,0.8rem)]
+              text-[clamp(0.8rem,0.95vw,1rem)]
+              font-medium
+              text-[#0a0812]
+              transition-colors
+              hover:bg-[#e2e0eb]
+              focus:outline-none
+            "
           >
             Join our community
           </button>
         </div>
 
-        {/* Hero Visual */}
-        <div className="relative flex h-[190px] w-[190px] shrink-0 items-center justify-center">
+        {/* Hero Visual - Completely dropped from DOM/layout on mobile */}
+        <div
+          className="
+            hidden
+            md:flex
+            relative
+            h-[clamp(160px,20vw,220px)]
+            w-[clamp(160px,20vw,220px)]
+            shrink-0
+            items-center
+            justify-center
+          "
+        >
           {/* Glowing pulse */}
           <div
-            className="absolute right-3.5 top-1 h-[7px] w-[7px] animate-pulse rounded-full bg-[#7a8cff]"
+            className="
+              absolute
+              right-[clamp(0.75rem,1.3vw,1.25rem)]
+              top-1
+              h-[clamp(5px,0.5vw,8px)]
+              w-[clamp(5px,0.5vw,8px)]
+              animate-pulse
+              rounded-full
+              bg-[#7a8cff]
+            "
             style={{
               boxShadow: "0 0 10px 2px rgba(122,140,255,0.5)",
             }}
@@ -37,7 +119,11 @@ export default function Hero() {
 
           {/* Robot icon */}
           <svg
-            className="h-[88px] w-[88px] text-[#e8c977]"
+            className="
+              h-[clamp(72px,9vw,105px)]
+              w-[clamp(72px,9vw,105px)]
+              text-[#e8c977]
+            "
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -54,9 +140,21 @@ export default function Hero() {
       </div>
 
       {/* Down Chevron */}
-      <div className="flex w-full justify-center pb-4 pt-12">
+      <div
+        className="
+          flex w-full
+          justify-center
+          pb-[clamp(0.75rem,2vh,1rem)]
+          pt-[clamp(2rem,6vh,3rem)]
+        "
+      >
         <svg
-          className="h-4 w-4 animate-bounce text-white/35"
+          className="
+            h-[clamp(0.875rem,1.2vw,1rem)]
+            w-[clamp(0.875rem,1.2vw,1rem)]
+            animate-bounce
+            text-white/35
+          "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
