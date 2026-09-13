@@ -7,13 +7,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
-    "HOME",
-    "EVENTS",
-    "MEMBERS",
-    "ACHIEVEMENTS",
-    "VISION",
-    "TALKS",
-    "ALUMNI",
+    "Home",
+    "Events",
+    "Members",
+    "Achievements",
+    "Vision",
+    "Talks",
+    "Alumni",
   ];
 
   return (
@@ -51,7 +51,8 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="whitespace-nowrap text-[12px] font-semibold tracking-[0.8px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+              className="whitespace-nowrap text-[14px] font-medium tracking-normal text-[#d1d7e9] transition-colors hover:text-[#ffffff]"
             >
               {link}
             </a>
@@ -64,7 +65,8 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="whitespace-nowrap text-[11px] font-semibold tracking-[0.6px] text-[#b8bfd6] transition-colors hover:text-[#f5f7ff]"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+              className="whitespace-nowrap text-[13px] font-medium tracking-normal text-[#d1d7e9] transition-colors hover:text-[#ffffff]"
             >
               {link}
             </a>
@@ -107,8 +109,8 @@ export default function Navbar() {
               key={link}
               href={`#${link.toLowerCase()}`}
               onClick={() => setMenuOpen(false)}
-              
-              className="block rounded-xl px-4 py-3 text-[13px] font-semibold tracking-[0.8px] text-[#b8bfd6] transition-colors hover:bg-white/[0.06] hover:text-[#f5f7ff]"
+              style={{ fontFamily: "'Open Sans', sans-serif" }}
+              className="block rounded-xl px-4 py-3 text-[14px] font-medium tracking-normal text-[#d1d7e9] transition-colors hover:bg-white/[0.06] hover:text-[#ffffff]"
             >
               {link}
             </a>
