@@ -16,8 +16,11 @@ export default function Navbar() {
     "Alumni",
   ];
 
-  const linkHref = (link: string) =>
-    link === "Events" ? "/events" : `#${link.toLowerCase()}`;
+  const linkHref = (link: string) => {
+    if (link === "Events") return "/events";
+    if (link === "Achievements") return "/achievements";
+    return `#${link.toLowerCase()}`;
+  };
 
   return (
     // Increased max-w from 1300px to 1440px to extend the navbar's maximum length
